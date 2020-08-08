@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="create"></a>
 # **create**
-> CreateUploadCredentialsRsp create(timestamp, noncestr, signature, body)
+> CreateUploadCredentialsRsp create(body)
 
 获取上传凭证 credentials
 
@@ -30,12 +30,9 @@ public class Example {
     defaultClient.setBasePath("https://api.xres.lucfish.com");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
-    String timestamp = "timestamp_example"; // String | timestamp
-    String noncestr = "noncestr_example"; // String | noncestr
-    String signature = "signature_example"; // String | signature
     CreateUploadCredentialsReq body = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
     try {
-      CreateUploadCredentialsRsp result = apiInstance.create(timestamp, noncestr, signature, body);
+      CreateUploadCredentialsRsp result = apiInstance.create(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#create");
@@ -52,9 +49,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timestamp** | **String**| timestamp |
- **noncestr** | **String**| noncestr |
- **signature** | **String**| signature |
  **body** | [**CreateUploadCredentialsReq**](CreateUploadCredentialsReq.md)|  |
 
 ### Return type

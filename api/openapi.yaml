@@ -16,25 +16,6 @@ paths:
     post:
       description: 获取上传凭证 credentials
       operationId: create
-      parameters:
-      - description: timestamp
-        in: header
-        name: Timestamp
-        required: true
-        schema:
-          type: string
-      - description: noncestr
-        in: header
-        name: Noncestr
-        required: true
-        schema:
-          type: string
-      - description: signature
-        in: header
-        name: Signature
-        required: true
-        schema:
-          type: string
       requestBody:
         content:
           application/json:

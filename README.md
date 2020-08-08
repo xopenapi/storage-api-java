@@ -2,7 +2,7 @@
 
 Storage open api
 - API version: 1.0.0
-  - Build date: 2020-08-08T09:56:23.247Z[GMT]
+  - Build date: 2020-08-08T10:07:34.942Z[GMT]
 
 storage open api
 
@@ -85,12 +85,9 @@ public class Example {
     defaultClient.setBasePath("https://api.xres.lucfish.com");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
-    String timestamp = "timestamp_example"; // String | timestamp
-    String noncestr = "noncestr_example"; // String | noncestr
-    String signature = "signature_example"; // String | signature
     CreateUploadCredentialsReq body = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
     try {
-      CreateUploadCredentialsRsp result = apiInstance.create(timestamp, noncestr, signature, body);
+      CreateUploadCredentialsRsp result = apiInstance.create(body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#create");
