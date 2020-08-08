@@ -1,0 +1,85 @@
+openapi: 3.0.1
+info:
+  description: storage open api
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  title: Storage open api
+  version: 1.0.0
+servers:
+- url: https://api.xres.lucfish.com/
+tags:
+- description: credentials
+  name: credentials
+paths:
+  /oss/credentials:
+    post:
+      description: 获取上传凭证 credentials
+      operationId: create
+      parameters:
+      - description: timestamp
+        in: header
+        name: Timestamp
+        required: true
+        schema:
+          type: string
+      - description: noncestr
+        in: header
+        name: Noncestr
+        required: true
+        schema:
+          type: string
+      - description: signature
+        in: header
+        name: Signature
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUploadCredentialsReq'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUploadCredentialsRsp'
+          description: successful operation
+      summary: 获取上传凭证 credentials
+      tags:
+      - credentials
+      x-codegen-request-body-name: body
+      x-contentType: application/json
+      x-accepts: application/json
+components:
+  schemas:
+    CreateUploadCredentialsReq:
+      example:
+        extra: '{}'
+        channel: channel
+      properties:
+        channel:
+          type: string
+        extra:
+          properties: {}
+          type: object
+      type: object
+    CreateUploadCredentialsRsp:
+      example:
+        msg: msg
+        code: 0
+        data: '{}'
+      properties:
+        code:
+          format: int32
+          type: integer
+        msg:
+          type: string
+        data:
+          properties: {}
+          type: object
+      type: object
+
