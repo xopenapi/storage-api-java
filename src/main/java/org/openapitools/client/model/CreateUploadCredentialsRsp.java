@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateUploadCredentialsRsp
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-08T10:07:34.942Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T05:50:24.697+08:00[Asia/Shanghai]")
 public class CreateUploadCredentialsRsp {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)

@@ -16,6 +16,13 @@ paths:
     post:
       description: 获取上传凭证 credentials
       operationId: create
+      parameters:
+      - description: an authorization header
+        in: header
+        name: authorization
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           application/json:

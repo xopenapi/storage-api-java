@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="create"></a>
 # **create**
-> CreateUploadCredentialsRsp create(body)
+> CreateUploadCredentialsRsp create(authorization, body)
 
 获取上传凭证 credentials
 
@@ -18,11 +18,11 @@ Method | HTTP request | Description
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CredentialsApi;
+import com.xopenapi.ApiClient;
+import com.xopenapi.ApiException;
+import com.xopenapi.Configuration;
+import com.xopenapi.models.*;
+import com.xopenapi.storage.CredentialsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -30,9 +30,10 @@ public class Example {
     defaultClient.setBasePath("https://api.xres.lucfish.com");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
+    String authorization = "authorization_example"; // String | an authorization header
     CreateUploadCredentialsReq body = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
     try {
-      CreateUploadCredentialsRsp result = apiInstance.create(body);
+      CreateUploadCredentialsRsp result = apiInstance.create(authorization, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#create");
@@ -49,6 +50,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **authorization** | **String**| an authorization header |
  **body** | [**CreateUploadCredentialsReq**](CreateUploadCredentialsReq.md)|  |
 
 ### Return type

@@ -4,7 +4,7 @@
     <groupId>org.openapitools</groupId>
     <artifactId>openapi-java-client</artifactId>
     <packaging>jar</packaging>
-    <name>storage-api-java</name>
+    <name>openapi-java-client</name>
     <version>1.0.0</version>
     <url>https://github.com/openapitools/openapi-generator</url>
     <description>OpenAPI Java</description>

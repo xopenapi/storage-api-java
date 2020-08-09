@@ -2,7 +2,7 @@
 
 Storage open api
 - API version: 1.0.0
-  - Build date: 2020-08-08T10:07:34.942Z[GMT]
+  - Build date: 2020-08-09T05:42:59.702+08:00[Asia/Shanghai]
 
 storage open api
 
@@ -73,11 +73,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.CredentialsApi;
+import com.xopenapi.ApiClient;
+import com.xopenapi.ApiException;
+import com.xopenapi.Configuration;
+import com.xopenapi.models.*;
+import com.xopenapi.storage.CredentialsApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -85,9 +85,10 @@ public class Example {
     defaultClient.setBasePath("https://api.xres.lucfish.com");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
+    String authorization = "authorization_example"; // String | an authorization header
     CreateUploadCredentialsReq body = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
     try {
-      CreateUploadCredentialsRsp result = apiInstance.create(body);
+      CreateUploadCredentialsRsp result = apiInstance.create(authorization, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#create");
