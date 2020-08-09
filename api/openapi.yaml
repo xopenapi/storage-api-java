@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   description: storage open api
   license:
@@ -16,19 +16,8 @@ paths:
     post:
       description: 获取上传凭证 credentials
       operationId: create
-      parameters:
-      - description: an authorization header
-        in: header
-        name: authorization
-        required: true
-        schema:
-          type: string
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateUploadCredentialsReq'
-        required: true
+        $ref: '#/components/requestBodies/CreateUploadCredentialsReq'
       responses:
         "200":
           content:
@@ -36,13 +25,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/CreateUploadCredentialsRsp'
           description: successful operation
+      security:
+      - Signature:
+        - write:credentials
+        - write:credentials
       summary: 获取上传凭证 credentials
       tags:
       - credentials
-      x-codegen-request-body-name: body
       x-contentType: application/json
       x-accepts: application/json
 components:
+  requestBodies:
+    CreateUploadCredentialsReq:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CreateUploadCredentialsReq'
   schemas:
     CreateUploadCredentialsReq:
       example:
@@ -52,7 +50,6 @@ components:
         channel:
           type: string
         extra:
-          properties: {}
           type: object
       type: object
     CreateUploadCredentialsRsp:
@@ -67,7 +64,10 @@ components:
         msg:
           type: string
         data:
-          properties: {}
           type: object
       type: object
+  securitySchemes:
+    Signature:
+      scheme: signature
+      type: http
 

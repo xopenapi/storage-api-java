@@ -11,7 +11,7 @@
  */
 
 
-package org.openapitools.client.model;
+package com.xopenapi.storage.model;
 
 import java.util.Objects;
 import java.util.Arrays;
@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateUploadCredentialsReq
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T05:50:24.697+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-10T00:57:47.255+08:00[Asia/Shanghai]")
 public class CreateUploadCredentialsReq {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)

@@ -1,8 +1,8 @@
-# openapi-java-client
+# storage-api-java
 
 Storage open api
 - API version: 1.0.0
-  - Build date: 2020-08-09T05:42:59.702+08:00[Asia/Shanghai]
+  - Build date: 2020-08-10T00:57:47.255+08:00[Asia/Shanghai]
 
 storage open api
 
@@ -38,8 +38,8 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>org.openapitools</groupId>
-  <artifactId>openapi-java-client</artifactId>
+  <groupId>com.xopenapi</groupId>
+  <artifactId>storage-api-java</artifactId>
   <version>1.0.0</version>
   <scope>compile</scope>
 </dependency>
@@ -50,7 +50,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "org.openapitools:openapi-java-client:1.0.0"
+compile "com.xopenapi:storage-api-java:1.0.0"
 ```
 
 ### Others
@@ -63,7 +63,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-1.0.0.jar`
+* `target/storage-api-java-1.0.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -76,6 +76,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.xopenapi.ApiClient;
 import com.xopenapi.ApiException;
 import com.xopenapi.Configuration;
+import com.xopenapi.auth.*;
 import com.xopenapi.models.*;
 import com.xopenapi.storage.CredentialsApi;
 
@@ -83,12 +84,12 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.xres.lucfish.com");
+    
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
-    String authorization = "authorization_example"; // String | an authorization header
-    CreateUploadCredentialsReq body = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
+    CreateUploadCredentialsReq createUploadCredentialsReq = new CreateUploadCredentialsReq(); // CreateUploadCredentialsReq | 
     try {
-      CreateUploadCredentialsRsp result = apiInstance.create(authorization, body);
+      CreateUploadCredentialsRsp result = apiInstance.create(createUploadCredentialsReq);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#create");
@@ -119,8 +120,11 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
 Authentication schemes defined for the API:
+### Signature
+
+- **Type**: HTTP basic authentication
+
 
 ## Recommendation
 

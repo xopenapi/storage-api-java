@@ -11,7 +11,7 @@
  */
 
 
-package org.openapitools.client.model;
+package com.xopenapi.storage.model;
 
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

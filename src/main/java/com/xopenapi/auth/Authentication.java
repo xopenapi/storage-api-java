@@ -14,9 +14,11 @@
 package com.xopenapi.auth;
 
 import com.xopenapi.Pair;
+import com.xopenapi.ApiException;
 
 import java.util.Map;
 import java.util.List;
+import java.net.URI;
 
 public interface Authentication {
     /**
@@ -26,5 +28,5 @@ public interface Authentication {
      * @param headerParams Map of header parameters
      * @param cookieParams Map of cookie parameters
      */
-    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException;
 }

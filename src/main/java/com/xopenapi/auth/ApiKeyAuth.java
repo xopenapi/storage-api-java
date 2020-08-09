@@ -14,11 +14,13 @@
 package com.xopenapi.auth;
 
 import com.xopenapi.Pair;
+import com.xopenapi.ApiException;
 
 import java.util.Map;
 import java.util.List;
+import java.net.URI;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T05:42:59.702+08:00[Asia/Shanghai]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-10T00:57:47.255+08:00[Asia/Shanghai]")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -56,7 +58,7 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if (apiKey == null) {
       return;
     }
