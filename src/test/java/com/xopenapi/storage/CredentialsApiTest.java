@@ -24,7 +24,6 @@ import org.junit.Test;
 import org.junit.Ignore;
 
 import java.net.URI;
-import java.net.URL;
 import java.util.*;
 
 /**

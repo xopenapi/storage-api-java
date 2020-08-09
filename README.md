@@ -2,7 +2,7 @@
 
 Storage open api
 - API version: 1.0.0
-  - Build date: 2020-08-10T00:57:47.255+08:00[Asia/Shanghai]
+  - Build date: 2020-08-09T18:49:08.484Z[GMT]
 
 storage open api
 
