@@ -57,5 +57,4 @@ public class CredentialsApiTest {
 
         System.out.printf("response: %s", response);
     }
-    
 }
