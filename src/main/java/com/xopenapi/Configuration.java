@@ -13,7 +13,7 @@
 
 package com.xopenapi;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T11:22:04.968Z[GMT]")
 public class Configuration {
     private static ApiClient defaultApiClient = new ApiClient();
 

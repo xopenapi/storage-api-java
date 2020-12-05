@@ -127,8 +127,9 @@ components:
       type: object
   securitySchemes:
     ApiKey:
-      scheme: bearer
-      type: http
+      in: header
+      name: Authorization
+      type: apiKey
     Timestamp:
       in: header
       name: Timestamp

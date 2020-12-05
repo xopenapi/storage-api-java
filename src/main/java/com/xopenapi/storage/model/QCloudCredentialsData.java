@@ -28,7 +28,7 @@ import java.io.IOException;
  * 腾讯云上传凭证数据
  */
 @ApiModel(description = "腾讯云上传凭证数据")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T11:22:04.968Z[GMT]")
 public class QCloudCredentialsData {
   public static final String SERIALIZED_NAME_SESSION_TOKEN = "sessionToken";
   @SerializedName(SERIALIZED_NAME_SESSION_TOKEN)

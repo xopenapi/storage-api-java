@@ -30,9 +30,11 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.lucfish.com/storage/v1");
     
-    // Configure HTTP bearer authorization: ApiKey
-    HttpBearerAuth ApiKey = (HttpBearerAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setBearerToken("BEARER TOKEN");
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
     // Configure API key authorization: Noncestr
     ApiKeyAuth Noncestr = (ApiKeyAuth) defaultClient.getAuthentication("Noncestr");

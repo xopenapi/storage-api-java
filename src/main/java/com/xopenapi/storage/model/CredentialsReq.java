@@ -29,7 +29,7 @@ import java.io.IOException;
  * 获取上传凭证
  */
 @ApiModel(description = "获取上传凭证")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T11:22:04.968Z[GMT]")
 public class CredentialsReq {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
