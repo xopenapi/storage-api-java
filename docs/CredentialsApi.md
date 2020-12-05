@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="credentials"></a>
 # **credentials**
-> CredentialsRsp credentials(credentialsReq)
+> CredentialsRsp credentials(timestamp, noncestr, signature, credentialsReq)
 
 获取上传凭证
 
@@ -30,34 +30,17 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.lucfish.com/storage/v1");
     
-    // Configure API key authorization: ApiKey
-    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKey.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Noncestr
-    ApiKeyAuth Noncestr = (ApiKeyAuth) defaultClient.getAuthentication("Noncestr");
-    Noncestr.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Noncestr.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Signature
-    ApiKeyAuth Signature = (ApiKeyAuth) defaultClient.getAuthentication("Signature");
-    Signature.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Signature.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Timestamp
-    ApiKeyAuth Timestamp = (ApiKeyAuth) defaultClient.getAuthentication("Timestamp");
-    Timestamp.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Timestamp.setApiKeyPrefix("Token");
+    // Configure HTTP bearer authorization: ApiKey
+    HttpBearerAuth ApiKey = (HttpBearerAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setBearerToken("BEARER TOKEN");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
+    String timestamp = "timestamp_example"; // String | 
+    String noncestr = "noncestr_example"; // String | 
+    String signature = "signature_example"; // String | 
     CredentialsReq credentialsReq = new CredentialsReq(); // CredentialsReq | 
     try {
-      CredentialsRsp result = apiInstance.credentials(credentialsReq);
+      CredentialsRsp result = apiInstance.credentials(timestamp, noncestr, signature, credentialsReq);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#credentials");
@@ -74,6 +57,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **timestamp** | **String**|  | [optional]
+ **noncestr** | **String**|  | [optional]
+ **signature** | **String**|  | [optional]
  **credentialsReq** | [**CredentialsReq**](CredentialsReq.md)|  | [optional]
 
 ### Return type
@@ -82,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [Noncestr](../README.md#Noncestr), [Signature](../README.md#Signature), [Timestamp](../README.md#Timestamp)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 

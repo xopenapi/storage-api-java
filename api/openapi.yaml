@@ -10,9 +10,6 @@ servers:
 - url: https://api.lucfish.com/storage/v1
 security:
 - ApiKey: []
-  Timestamp: []
-  Signature: []
-  Noncestr: []
 tags:
 - description: credentials
   name: credentials
@@ -21,6 +18,28 @@ paths:
     post:
       description: 获取上传凭证
       operationId: credentials
+      parameters:
+      - explode: false
+        in: header
+        name: Timestamp
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: Noncestr
+        required: false
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: header
+        name: Signature
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -39,6 +58,31 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
 components:
+  parameters:
+    AuthTimestamp:
+      explode: false
+      in: header
+      name: Timestamp
+      required: false
+      schema:
+        type: string
+      style: simple
+    AuthNoncestr:
+      explode: false
+      in: header
+      name: Noncestr
+      required: false
+      schema:
+        type: string
+      style: simple
+    AuthSignature:
+      explode: false
+      in: header
+      name: Signature
+      required: false
+      schema:
+        type: string
+      style: simple
   schemas:
     CredentialsReq:
       description: 获取上传凭证
@@ -51,8 +95,6 @@ components:
           type: string
         params:
           description: 计算凭证参数，具体数据结构与上传渠道对应
-          oneOf:
-          - $ref: '#/components/schemas/QCloudCredentialsParams'
           type: object
       required:
       - channel
@@ -74,8 +116,6 @@ components:
           type: string
         data:
           description: 上传凭证数据
-          oneOf:
-          - $ref: '#/components/schemas/QCloudCredentialsData'
           type: object
       required:
       - code
@@ -127,19 +167,6 @@ components:
       type: object
   securitySchemes:
     ApiKey:
-      in: header
-      name: Authorization
-      type: apiKey
-    Timestamp:
-      in: header
-      name: Timestamp
-      type: apiKey
-    Signature:
-      in: header
-      name: Signature
-      type: apiKey
-    Noncestr:
-      in: header
-      name: Noncestr
-      type: apiKey
+      scheme: bearer
+      type: http
 

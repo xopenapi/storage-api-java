@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.xopenapi.storage.model.OneOfQCloudCredentialsData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +28,7 @@ import java.io.IOException;
  * 获取上传凭证结果
  */
 @ApiModel(description = "获取上传凭证结果")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T11:22:04.968Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T18:52:44.565Z[GMT]")
 public class CredentialsRsp {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -41,7 +40,7 @@ public class CredentialsRsp {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private OneOfQCloudCredentialsData data;
+  private Object data;
 
 
   public CredentialsRsp code(Integer code) {
@@ -89,7 +88,7 @@ public class CredentialsRsp {
   }
 
 
-  public CredentialsRsp data(OneOfQCloudCredentialsData data) {
+  public CredentialsRsp data(Object data) {
     
     this.data = data;
     return this;
@@ -102,12 +101,12 @@ public class CredentialsRsp {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "上传凭证数据")
 
-  public OneOfQCloudCredentialsData getData() {
+  public Object getData() {
     return data;
   }
 
 
-  public void setData(OneOfQCloudCredentialsData data) {
+  public void setData(Object data) {
     this.data = data;
   }
 

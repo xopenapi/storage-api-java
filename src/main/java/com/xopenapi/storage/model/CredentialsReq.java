@@ -20,7 +20,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.xopenapi.storage.model.OneOfQCloudCredentialsParams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +28,7 @@ import java.io.IOException;
  * 获取上传凭证
  */
 @ApiModel(description = "获取上传凭证")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T11:22:04.968Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T18:52:44.565Z[GMT]")
 public class CredentialsReq {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
@@ -37,7 +36,7 @@ public class CredentialsReq {
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
-  private OneOfQCloudCredentialsParams params;
+  private Object params;
 
 
   public CredentialsReq channel(String channel) {
@@ -62,7 +61,7 @@ public class CredentialsReq {
   }
 
 
-  public CredentialsReq params(OneOfQCloudCredentialsParams params) {
+  public CredentialsReq params(Object params) {
     
     this.params = params;
     return this;
@@ -74,12 +73,12 @@ public class CredentialsReq {
   **/
   @ApiModelProperty(required = true, value = "计算凭证参数，具体数据结构与上传渠道对应")
 
-  public OneOfQCloudCredentialsParams getParams() {
+  public Object getParams() {
     return params;
   }
 
 
-  public void setParams(OneOfQCloudCredentialsParams params) {
+  public void setParams(Object params) {
     this.params = params;
   }
 

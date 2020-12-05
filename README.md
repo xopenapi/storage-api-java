@@ -2,7 +2,7 @@
 
 storage open api
 - API version: 1.0.0
-  - Build date: 2020-12-05T11:22:04.968Z[GMT]
+  - Build date: 2020-12-05T18:52:44.565Z[GMT]
 
 storage open api
 
@@ -85,34 +85,17 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.lucfish.com/storage/v1");
     
-    // Configure API key authorization: ApiKey
-    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-    ApiKey.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKey.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Noncestr
-    ApiKeyAuth Noncestr = (ApiKeyAuth) defaultClient.getAuthentication("Noncestr");
-    Noncestr.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Noncestr.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Signature
-    ApiKeyAuth Signature = (ApiKeyAuth) defaultClient.getAuthentication("Signature");
-    Signature.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Signature.setApiKeyPrefix("Token");
-
-    // Configure API key authorization: Timestamp
-    ApiKeyAuth Timestamp = (ApiKeyAuth) defaultClient.getAuthentication("Timestamp");
-    Timestamp.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //Timestamp.setApiKeyPrefix("Token");
+    // Configure HTTP bearer authorization: ApiKey
+    HttpBearerAuth ApiKey = (HttpBearerAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setBearerToken("BEARER TOKEN");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
+    String timestamp = "timestamp_example"; // String | 
+    String noncestr = "noncestr_example"; // String | 
+    String signature = "signature_example"; // String | 
     CredentialsReq credentialsReq = new CredentialsReq(); // CredentialsReq | 
     try {
-      CredentialsRsp result = apiInstance.credentials(credentialsReq);
+      CredentialsRsp result = apiInstance.credentials(timestamp, noncestr, signature, credentialsReq);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#credentials");
@@ -148,27 +131,7 @@ Class | Method | HTTP request | Description
 Authentication schemes defined for the API:
 ### ApiKey
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
-### Noncestr
-
-- **Type**: API key
-- **API key parameter name**: Noncestr
-- **Location**: HTTP header
-
-### Signature
-
-- **Type**: API key
-- **API key parameter name**: Signature
-- **Location**: HTTP header
-
-### Timestamp
-
-- **Type**: API key
-- **API key parameter name**: Timestamp
-- **Location**: HTTP header
+- **Type**: HTTP basic authentication
 
 
 ## Recommendation

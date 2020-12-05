@@ -84,10 +84,7 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("ApiKey", new ApiKeyAuth("header", "Authorization"));
-        authentications.put("Noncestr", new ApiKeyAuth("header", "Noncestr"));
-        authentications.put("Signature", new ApiKeyAuth("header", "Signature"));
-        authentications.put("Timestamp", new ApiKeyAuth("header", "Timestamp"));
+        authentications.put("ApiKey", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -108,10 +105,7 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("ApiKey", new ApiKeyAuth("header", "Authorization"));
-        authentications.put("Noncestr", new ApiKeyAuth("header", "Noncestr"));
-        authentications.put("Signature", new ApiKeyAuth("header", "Signature"));
-        authentications.put("Timestamp", new ApiKeyAuth("header", "Timestamp"));
+        authentications.put("ApiKey", new HttpBearerAuth("bearer"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
