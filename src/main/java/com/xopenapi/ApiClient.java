@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -54,7 +54,7 @@ import com.xopenapi.auth.ApiKeyAuth;
 
 public class ApiClient {
 
-    private String basePath = "https://api.xres.lucfish.com";
+    private String basePath = "https://api.lucfish.com/storage/v1";
     private boolean debugging = false;
     private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
     private Map<String, String> defaultCookieMap = new HashMap<String, String>();
@@ -84,7 +84,10 @@ public class ApiClient {
         initHttpClient();
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("Signature", new HttpBearerAuth("signature"));
+        authentications.put("ApiKey", new HttpBearerAuth("bearer"));
+        authentications.put("Noncestr", new ApiKeyAuth("header", "Noncestr"));
+        authentications.put("Signature", new ApiKeyAuth("header", "Signature"));
+        authentications.put("Timestamp", new ApiKeyAuth("header", "Timestamp"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -105,7 +108,10 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("Signature", new HttpBearerAuth("signature"));
+        authentications.put("ApiKey", new HttpBearerAuth("bearer"));
+        authentications.put("Noncestr", new ApiKeyAuth("header", "Noncestr"));
+        authentications.put("Signature", new ApiKeyAuth("header", "Signature"));
+        authentications.put("Timestamp", new ApiKeyAuth("header", "Timestamp"));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
@@ -147,7 +153,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.xres.lucfish.com
+     * @param basePath Base path of the URL (e.g https://api.lucfish.com/storage/v1
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {

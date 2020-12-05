@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -20,15 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.xopenapi.storage.model.OneOfQCloudCredentialsData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateUploadCredentialsRsp
+ * 获取上传凭证结果
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T18:49:08.484Z[GMT]")
-public class CreateUploadCredentialsRsp {
+@ApiModel(description = "获取上传凭证结果")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
+public class CredentialsRsp {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
   private Integer code;
@@ -39,21 +41,20 @@ public class CreateUploadCredentialsRsp {
 
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
-  private Object data;
+  private OneOfQCloudCredentialsData data;
 
 
-  public CreateUploadCredentialsRsp code(Integer code) {
+  public CredentialsRsp code(Integer code) {
     
     this.code = code;
     return this;
   }
 
    /**
-   * Get code
+   * 错误码
    * @return code
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "错误码")
 
   public Integer getCode() {
     return code;
@@ -65,18 +66,18 @@ public class CreateUploadCredentialsRsp {
   }
 
 
-  public CreateUploadCredentialsRsp msg(String msg) {
+  public CredentialsRsp msg(String msg) {
     
     this.msg = msg;
     return this;
   }
 
    /**
-   * Get msg
+   * 错误消息
    * @return msg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "错误消息")
 
   public String getMsg() {
     return msg;
@@ -88,25 +89,25 @@ public class CreateUploadCredentialsRsp {
   }
 
 
-  public CreateUploadCredentialsRsp data(Object data) {
+  public CredentialsRsp data(OneOfQCloudCredentialsData data) {
     
     this.data = data;
     return this;
   }
 
    /**
-   * Get data
+   * 上传凭证数据
    * @return data
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "上传凭证数据")
 
-  public Object getData() {
+  public OneOfQCloudCredentialsData getData() {
     return data;
   }
 
 
-  public void setData(Object data) {
+  public void setData(OneOfQCloudCredentialsData data) {
     this.data = data;
   }
 
@@ -119,10 +120,10 @@ public class CreateUploadCredentialsRsp {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateUploadCredentialsRsp createUploadCredentialsRsp = (CreateUploadCredentialsRsp) o;
-    return Objects.equals(this.code, createUploadCredentialsRsp.code) &&
-        Objects.equals(this.msg, createUploadCredentialsRsp.msg) &&
-        Objects.equals(this.data, createUploadCredentialsRsp.data);
+    CredentialsRsp credentialsRsp = (CredentialsRsp) o;
+    return Objects.equals(this.code, credentialsRsp.code) &&
+        Objects.equals(this.msg, credentialsRsp.msg) &&
+        Objects.equals(this.data, credentialsRsp.data);
   }
 
   @Override
@@ -134,7 +135,7 @@ public class CreateUploadCredentialsRsp {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateUploadCredentialsRsp {\n");
+    sb.append("class CredentialsRsp {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    msg: ").append(toIndentedString(msg)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");

@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -27,33 +27,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for CreateUploadCredentialsReq
+ * Model tests for QCloudCredentialsParams
  */
-public class CreateUploadCredentialsReqTest {
-    private final CreateUploadCredentialsReq model = new CreateUploadCredentialsReq();
+public class QCloudCredentialsParamsTest {
+    private final QCloudCredentialsParams model = new QCloudCredentialsParams();
 
     /**
-     * Model tests for CreateUploadCredentialsReq
+     * Model tests for QCloudCredentialsParams
      */
     @Test
-    public void testCreateUploadCredentialsReq() {
-        // TODO: test CreateUploadCredentialsReq
+    public void testQCloudCredentialsParams() {
+        // TODO: test QCloudCredentialsParams
     }
 
     /**
-     * Test the property 'channel'
+     * Test the property 'region'
      */
     @Test
-    public void channelTest() {
-        // TODO: test channel
+    public void regionTest() {
+        // TODO: test region
     }
 
     /**
-     * Test the property 'extra'
+     * Test the property 'bucket'
      */
     @Test
-    public void extraTest() {
-        // TODO: test extra
+    public void bucketTest() {
+        // TODO: test bucket
     }
 
 }

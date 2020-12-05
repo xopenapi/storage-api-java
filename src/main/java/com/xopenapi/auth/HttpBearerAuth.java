@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.List;
 import java.net.URI;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T18:49:08.484Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;

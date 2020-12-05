@@ -4,70 +4,141 @@ info:
   license:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-  title: Storage open api
+  title: storage open api
   version: 1.0.0
 servers:
-- url: https://api.xres.lucfish.com/
+- url: https://api.lucfish.com/storage/v1
+security:
+- ApiKey: []
+  Timestamp: []
+  Signature: []
+  Noncestr: []
 tags:
 - description: credentials
   name: credentials
 paths:
-  /oss/credentials:
+  /credentials:
     post:
-      description: 获取上传凭证 credentials
-      operationId: create
+      description: 获取上传凭证
+      operationId: credentials
       requestBody:
-        $ref: '#/components/requestBodies/CreateUploadCredentialsReq'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CredentialsReq'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateUploadCredentialsRsp'
-          description: successful operation
-      security:
-      - Signature:
-        - write:credentials
-        - write:credentials
-      summary: 获取上传凭证 credentials
+                $ref: '#/components/schemas/CredentialsRsp'
+          description: 成功获取上传凭证
+      summary: 获取上传凭证
       tags:
       - credentials
       x-contentType: application/json
       x-accepts: application/json
 components:
-  requestBodies:
-    CreateUploadCredentialsReq:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CreateUploadCredentialsReq'
   schemas:
-    CreateUploadCredentialsReq:
+    CredentialsReq:
+      description: 获取上传凭证
       example:
-        extra: '{}'
         channel: channel
+        params: '{}'
       properties:
         channel:
+          description: 上传渠道，腾讯云：qcloud、阿里云：aliyun、七牛：qiniu
           type: string
-        extra:
+        params:
+          description: 计算凭证参数，具体数据结构与上传渠道对应
+          oneOf:
+          - $ref: '#/components/schemas/QCloudCredentialsParams'
           type: object
+      required:
+      - channel
+      - params
       type: object
-    CreateUploadCredentialsRsp:
+    CredentialsRsp:
+      description: 获取上传凭证结果
       example:
         msg: msg
         code: 0
         data: '{}'
       properties:
         code:
+          description: 错误码
           format: int32
           type: integer
         msg:
+          description: 错误消息
           type: string
         data:
+          description: 上传凭证数据
+          oneOf:
+          - $ref: '#/components/schemas/QCloudCredentialsData'
           type: object
+      required:
+      - code
+      type: object
+    QCloudCredentialsParams:
+      description: 腾讯云计算上传凭证参数
+      properties:
+        region:
+          description: 存储桶所在区域，如：ap-guangzhou
+          type: string
+        bucket:
+          description: 存储桶名称
+          type: string
+      required:
+      - bucket
+      - region
+      type: object
+    QCloudCredentialsData:
+      description: 腾讯云上传凭证数据
+      properties:
+        sessionToken:
+          description: 请求时需要用的 token 字符串，最终请求 COS API 时，需要放在 Header 的 x-cos-security-token
+            字段
+          type: string
+        tmpSecretId:
+          description: 临时密钥 Id，可用于计算签名
+          type: string
+        tmpSecretKey:
+          description: 临时密钥 Key，可用于计算签名
+          type: string
+        startTime:
+          description: 密钥的起始时间戳（毫秒）
+          format: int64
+          type: integer
+        expiredTime:
+          description: 密钥的失效时间戳（毫秒）
+          format: int64
+          type: integer
+        requestId:
+          description: 请求ID
+          type: string
+      required:
+      - expiredTime
+      - requestId
+      - sessionToken
+      - startTime
+      - tmpSecretId
+      - tmpSecretKey
       type: object
   securitySchemes:
-    Signature:
-      scheme: signature
+    ApiKey:
+      scheme: bearer
       type: http
+    Timestamp:
+      in: header
+      name: Timestamp
+      type: apiKey
+    Signature:
+      in: header
+      name: Signature
+      type: apiKey
+    Noncestr:
+      in: header
+      name: Noncestr
+      type: apiKey
 

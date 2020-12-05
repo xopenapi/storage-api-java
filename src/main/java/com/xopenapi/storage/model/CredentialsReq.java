@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -20,36 +20,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.xopenapi.storage.model.OneOfQCloudCredentialsParams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CreateUploadCredentialsReq
+ * 获取上传凭证
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-08-09T18:49:08.484Z[GMT]")
-public class CreateUploadCredentialsReq {
+@ApiModel(description = "获取上传凭证")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T10:51:06.718Z[GMT]")
+public class CredentialsReq {
   public static final String SERIALIZED_NAME_CHANNEL = "channel";
   @SerializedName(SERIALIZED_NAME_CHANNEL)
   private String channel;
 
-  public static final String SERIALIZED_NAME_EXTRA = "extra";
-  @SerializedName(SERIALIZED_NAME_EXTRA)
-  private Object extra;
+  public static final String SERIALIZED_NAME_PARAMS = "params";
+  @SerializedName(SERIALIZED_NAME_PARAMS)
+  private OneOfQCloudCredentialsParams params;
 
 
-  public CreateUploadCredentialsReq channel(String channel) {
+  public CredentialsReq channel(String channel) {
     
     this.channel = channel;
     return this;
   }
 
    /**
-   * Get channel
+   * 上传渠道，腾讯云：qcloud、阿里云：aliyun、七牛：qiniu
    * @return channel
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "上传渠道，腾讯云：qcloud、阿里云：aliyun、七牛：qiniu")
 
   public String getChannel() {
     return channel;
@@ -61,26 +62,25 @@ public class CreateUploadCredentialsReq {
   }
 
 
-  public CreateUploadCredentialsReq extra(Object extra) {
+  public CredentialsReq params(OneOfQCloudCredentialsParams params) {
     
-    this.extra = extra;
+    this.params = params;
     return this;
   }
 
    /**
-   * Get extra
-   * @return extra
+   * 计算凭证参数，具体数据结构与上传渠道对应
+   * @return params
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "计算凭证参数，具体数据结构与上传渠道对应")
 
-  public Object getExtra() {
-    return extra;
+  public OneOfQCloudCredentialsParams getParams() {
+    return params;
   }
 
 
-  public void setExtra(Object extra) {
-    this.extra = extra;
+  public void setParams(OneOfQCloudCredentialsParams params) {
+    this.params = params;
   }
 
 
@@ -92,23 +92,23 @@ public class CreateUploadCredentialsReq {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateUploadCredentialsReq createUploadCredentialsReq = (CreateUploadCredentialsReq) o;
-    return Objects.equals(this.channel, createUploadCredentialsReq.channel) &&
-        Objects.equals(this.extra, createUploadCredentialsReq.extra);
+    CredentialsReq credentialsReq = (CredentialsReq) o;
+    return Objects.equals(this.channel, credentialsReq.channel) &&
+        Objects.equals(this.params, credentialsReq.params);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(channel, extra);
+    return Objects.hash(channel, params);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateUploadCredentialsReq {\n");
+    sb.append("class CredentialsReq {\n");
     sb.append("    channel: ").append(toIndentedString(channel)).append("\n");
-    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
+    sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("}");
     return sb.toString();
   }

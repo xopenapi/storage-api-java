@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.xopenapi.storage.model.OneOfQCloudCredentialsParams;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,41 +28,33 @@ import org.junit.Test;
 
 
 /**
- * Model tests for CreateUploadCredentialsRsp
+ * Model tests for CredentialsReq
  */
-public class CreateUploadCredentialsRspTest {
-    private final CreateUploadCredentialsRsp model = new CreateUploadCredentialsRsp();
+public class CredentialsReqTest {
+    private final CredentialsReq model = new CredentialsReq();
 
     /**
-     * Model tests for CreateUploadCredentialsRsp
+     * Model tests for CredentialsReq
      */
     @Test
-    public void testCreateUploadCredentialsRsp() {
-        // TODO: test CreateUploadCredentialsRsp
+    public void testCredentialsReq() {
+        // TODO: test CredentialsReq
     }
 
     /**
-     * Test the property 'code'
+     * Test the property 'channel'
      */
     @Test
-    public void codeTest() {
-        // TODO: test code
+    public void channelTest() {
+        // TODO: test channel
     }
 
     /**
-     * Test the property 'msg'
+     * Test the property 'params'
      */
     @Test
-    public void msgTest() {
-        // TODO: test msg
-    }
-
-    /**
-     * Test the property 'data'
-     */
-    @Test
-    public void dataTest() {
-        // TODO: test data
+    public void paramsTest() {
+        // TODO: test params
     }
 
 }

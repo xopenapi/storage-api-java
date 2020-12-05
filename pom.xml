@@ -265,11 +265,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.tomitribe</groupId>
-            <artifactId>tomitribe-http-signatures</artifactId>
-            <version>${http-signature-version}</version>
-        </dependency>
     </dependencies>
     <properties>
         <java.version>1.7</java.version>
@@ -283,7 +278,6 @@
         <threetenbp-version>1.4.3</threetenbp-version>
         <javax-annotation-version>1.3.2</javax-annotation-version>
         <junit-version>4.13</junit-version>
-        <http-signature-version>1.5</http-signature-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>

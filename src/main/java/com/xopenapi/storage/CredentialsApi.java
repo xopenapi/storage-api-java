@@ -1,5 +1,5 @@
 /*
- * Storage open api
+ * storage open api
  * storage open api
  *
  * The version of the OpenAPI document: 1.0.0
@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.xopenapi.storage.model.CreateUploadCredentialsReq;
-import com.xopenapi.storage.model.CreateUploadCredentialsRsp;
+import com.xopenapi.storage.model.CredentialsReq;
+import com.xopenapi.storage.model.CredentialsRsp;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,22 +56,22 @@ public class CredentialsApi {
     }
 
     /**
-     * Build call for create
-     * @param createUploadCredentialsReq  (optional)
+     * Build call for credentials
+     * @param credentialsReq  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createCall(CreateUploadCredentialsReq createUploadCredentialsReq, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createUploadCredentialsReq;
+    public okhttp3.Call credentialsCall(CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = credentialsReq;
 
         // create path and map variables
-        String localVarPath = "/oss/credentials";
+        String localVarPath = "/credentials";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -92,71 +92,71 @@ public class CredentialsApi {
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        String[] localVarAuthNames = new String[] { "Signature" };
+        String[] localVarAuthNames = new String[] { "ApiKey", "Noncestr", "Signature", "Timestamp" };
         return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback, false);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createValidateBeforeCall(CreateUploadCredentialsReq createUploadCredentialsReq, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call credentialsValidateBeforeCall(CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = createCall(createUploadCredentialsReq, _callback);
+        okhttp3.Call localVarCall = credentialsCall(credentialsReq, _callback);
         return localVarCall;
 
     }
 
     /**
-     * 获取上传凭证 credentials
-     * 获取上传凭证 credentials
-     * @param createUploadCredentialsReq  (optional)
-     * @return CreateUploadCredentialsRsp
+     * 获取上传凭证
+     * 获取上传凭证
+     * @param credentialsReq  (optional)
+     * @return CredentialsRsp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public CreateUploadCredentialsRsp create(CreateUploadCredentialsReq createUploadCredentialsReq) throws ApiException {
-        ApiResponse<CreateUploadCredentialsRsp> localVarResp = createWithHttpInfo(createUploadCredentialsReq);
+    public CredentialsRsp credentials(CredentialsReq credentialsReq) throws ApiException {
+        ApiResponse<CredentialsRsp> localVarResp = credentialsWithHttpInfo(credentialsReq);
         return localVarResp.getData();
     }
 
     /**
-     * 获取上传凭证 credentials
-     * 获取上传凭证 credentials
-     * @param createUploadCredentialsReq  (optional)
-     * @return ApiResponse&lt;CreateUploadCredentialsRsp&gt;
+     * 获取上传凭证
+     * 获取上传凭证
+     * @param credentialsReq  (optional)
+     * @return ApiResponse&lt;CredentialsRsp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateUploadCredentialsRsp> createWithHttpInfo(CreateUploadCredentialsReq createUploadCredentialsReq) throws ApiException {
-        okhttp3.Call localVarCall = createValidateBeforeCall(createUploadCredentialsReq, null);
-        Type localVarReturnType = new TypeToken<CreateUploadCredentialsRsp>(){}.getType();
+    public ApiResponse<CredentialsRsp> credentialsWithHttpInfo(CredentialsReq credentialsReq) throws ApiException {
+        okhttp3.Call localVarCall = credentialsValidateBeforeCall(credentialsReq, null);
+        Type localVarReturnType = new TypeToken<CredentialsRsp>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * 获取上传凭证 credentials (asynchronously)
-     * 获取上传凭证 credentials
-     * @param createUploadCredentialsReq  (optional)
+     * 获取上传凭证 (asynchronously)
+     * 获取上传凭证
+     * @param credentialsReq  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> successful operation </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAsync(CreateUploadCredentialsReq createUploadCredentialsReq, final ApiCallback<CreateUploadCredentialsRsp> _callback) throws ApiException {
+    public okhttp3.Call credentialsAsync(CredentialsReq credentialsReq, final ApiCallback<CredentialsRsp> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createValidateBeforeCall(createUploadCredentialsReq, _callback);
-        Type localVarReturnType = new TypeToken<CreateUploadCredentialsRsp>(){}.getType();
+        okhttp3.Call localVarCall = credentialsValidateBeforeCall(credentialsReq, _callback);
+        Type localVarReturnType = new TypeToken<CredentialsRsp>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
