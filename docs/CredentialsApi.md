@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="credentials"></a>
 # **credentials**
-> CredentialsRsp credentials(timestamp, noncestr, signature, credentialsReq)
+> CredentialsRsp credentials(credentialsReq)
 
 获取上传凭证
 
@@ -35,12 +35,9 @@ public class Example {
     ApiKey.setBearerToken("BEARER TOKEN");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
-    String timestamp = "timestamp_example"; // String | 
-    String noncestr = "noncestr_example"; // String | 
-    String signature = "signature_example"; // String | 
     CredentialsReq credentialsReq = new CredentialsReq(); // CredentialsReq | 
     try {
-      CredentialsRsp result = apiInstance.credentials(timestamp, noncestr, signature, credentialsReq);
+      CredentialsRsp result = apiInstance.credentials(credentialsReq);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#credentials");
@@ -57,9 +54,6 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **timestamp** | **String**|  | [optional]
- **noncestr** | **String**|  | [optional]
- **signature** | **String**|  | [optional]
  **credentialsReq** | [**CredentialsReq**](CredentialsReq.md)|  | [optional]
 
 ### Return type

@@ -57,9 +57,6 @@ public class CredentialsApi {
 
     /**
      * Build call for credentials
-     * @param timestamp  (optional)
-     * @param noncestr  (optional)
-     * @param signature  (optional)
      * @param credentialsReq  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -70,7 +67,7 @@ public class CredentialsApi {
         <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call credentialsCall(String timestamp, String noncestr, String signature, CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call credentialsCall(CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = credentialsReq;
 
         // create path and map variables
@@ -79,18 +76,6 @@ public class CredentialsApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        if (timestamp != null) {
-            localVarHeaderParams.put("Timestamp", localVarApiClient.parameterToString(timestamp));
-        }
-
-        if (noncestr != null) {
-            localVarHeaderParams.put("Noncestr", localVarApiClient.parameterToString(noncestr));
-        }
-
-        if (signature != null) {
-            localVarHeaderParams.put("Signature", localVarApiClient.parameterToString(signature));
-        }
-
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
@@ -112,10 +97,10 @@ public class CredentialsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call credentialsValidateBeforeCall(String timestamp, String noncestr, String signature, CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call credentialsValidateBeforeCall(CredentialsReq credentialsReq, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = credentialsCall(timestamp, noncestr, signature, credentialsReq, _callback);
+        okhttp3.Call localVarCall = credentialsCall(credentialsReq, _callback);
         return localVarCall;
 
     }
@@ -123,9 +108,6 @@ public class CredentialsApi {
     /**
      * 获取上传凭证
      * 获取上传凭证
-     * @param timestamp  (optional)
-     * @param noncestr  (optional)
-     * @param signature  (optional)
      * @param credentialsReq  (optional)
      * @return CredentialsRsp
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,17 +117,14 @@ public class CredentialsApi {
         <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public CredentialsRsp credentials(String timestamp, String noncestr, String signature, CredentialsReq credentialsReq) throws ApiException {
-        ApiResponse<CredentialsRsp> localVarResp = credentialsWithHttpInfo(timestamp, noncestr, signature, credentialsReq);
+    public CredentialsRsp credentials(CredentialsReq credentialsReq) throws ApiException {
+        ApiResponse<CredentialsRsp> localVarResp = credentialsWithHttpInfo(credentialsReq);
         return localVarResp.getData();
     }
 
     /**
      * 获取上传凭证
      * 获取上传凭证
-     * @param timestamp  (optional)
-     * @param noncestr  (optional)
-     * @param signature  (optional)
      * @param credentialsReq  (optional)
      * @return ApiResponse&lt;CredentialsRsp&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -155,8 +134,8 @@ public class CredentialsApi {
         <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CredentialsRsp> credentialsWithHttpInfo(String timestamp, String noncestr, String signature, CredentialsReq credentialsReq) throws ApiException {
-        okhttp3.Call localVarCall = credentialsValidateBeforeCall(timestamp, noncestr, signature, credentialsReq, null);
+    public ApiResponse<CredentialsRsp> credentialsWithHttpInfo(CredentialsReq credentialsReq) throws ApiException {
+        okhttp3.Call localVarCall = credentialsValidateBeforeCall(credentialsReq, null);
         Type localVarReturnType = new TypeToken<CredentialsRsp>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -164,9 +143,6 @@ public class CredentialsApi {
     /**
      * 获取上传凭证 (asynchronously)
      * 获取上传凭证
-     * @param timestamp  (optional)
-     * @param noncestr  (optional)
-     * @param signature  (optional)
      * @param credentialsReq  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -177,9 +153,9 @@ public class CredentialsApi {
         <tr><td> 200 </td><td> 成功获取上传凭证 </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call credentialsAsync(String timestamp, String noncestr, String signature, CredentialsReq credentialsReq, final ApiCallback<CredentialsRsp> _callback) throws ApiException {
+    public okhttp3.Call credentialsAsync(CredentialsReq credentialsReq, final ApiCallback<CredentialsRsp> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = credentialsValidateBeforeCall(timestamp, noncestr, signature, credentialsReq, _callback);
+        okhttp3.Call localVarCall = credentialsValidateBeforeCall(credentialsReq, _callback);
         Type localVarReturnType = new TypeToken<CredentialsRsp>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

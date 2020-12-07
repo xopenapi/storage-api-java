@@ -18,28 +18,6 @@ paths:
     post:
       description: 获取上传凭证
       operationId: credentials
-      parameters:
-      - explode: false
-        in: header
-        name: Timestamp
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: Noncestr
-        required: false
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: header
-        name: Signature
-        required: false
-        schema:
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -58,31 +36,6 @@ paths:
       x-contentType: application/json
       x-accepts: application/json
 components:
-  parameters:
-    AuthTimestamp:
-      explode: false
-      in: header
-      name: Timestamp
-      required: false
-      schema:
-        type: string
-      style: simple
-    AuthNoncestr:
-      explode: false
-      in: header
-      name: Noncestr
-      required: false
-      schema:
-        type: string
-      style: simple
-    AuthSignature:
-      explode: false
-      in: header
-      name: Signature
-      required: false
-      schema:
-        type: string
-      style: simple
   schemas:
     CredentialsReq:
       description: 获取上传凭证

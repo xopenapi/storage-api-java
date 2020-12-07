@@ -28,7 +28,7 @@ import java.io.IOException;
  * 腾讯云计算上传凭证参数
  */
 @ApiModel(description = "腾讯云计算上传凭证参数")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-05T18:52:44.565Z[GMT]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-12-07T15:36:38Z[GMT]")
 public class QCloudCredentialsParams {
   public static final String SERIALIZED_NAME_REGION = "region";
   @SerializedName(SERIALIZED_NAME_REGION)

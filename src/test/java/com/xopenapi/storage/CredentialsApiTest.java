@@ -43,11 +43,8 @@ public class CredentialsApiTest {
      */
     @Test
     public void credentialsTest() throws ApiException {
-        String timestamp = null;
-        String noncestr = null;
-        String signature = null;
         CredentialsReq credentialsReq = null;
-        CredentialsRsp response = api.credentials(timestamp, noncestr, signature, credentialsReq);
+        CredentialsRsp response = api.credentials(credentialsReq);
 
         // TODO: test validations
     }

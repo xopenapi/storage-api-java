@@ -2,7 +2,7 @@
 
 storage open api
 - API version: 1.0.0
-  - Build date: 2020-12-05T18:52:44.565Z[GMT]
+  - Build date: 2020-12-07T15:36:38Z[GMT]
 
 storage open api
 
@@ -90,12 +90,9 @@ public class Example {
     ApiKey.setBearerToken("BEARER TOKEN");
 
     CredentialsApi apiInstance = new CredentialsApi(defaultClient);
-    String timestamp = "timestamp_example"; // String | 
-    String noncestr = "noncestr_example"; // String | 
-    String signature = "signature_example"; // String | 
     CredentialsReq credentialsReq = new CredentialsReq(); // CredentialsReq | 
     try {
-      CredentialsRsp result = apiInstance.credentials(timestamp, noncestr, signature, credentialsReq);
+      CredentialsRsp result = apiInstance.credentials(credentialsReq);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialsApi#credentials");
